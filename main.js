@@ -252,6 +252,7 @@ const petBuilder = (array) => {
                       <p class="card-text fs-6">${array[i].specialSkill}</p>
                     </div>
                     <p class="card-text fs-5">${array[i].type}</p>
+                    <button type="button" class="btn btn-danger" id="${i}">Delete</button>
                   </div>`;
 	}
 	printToDom('#pets', domString);
@@ -273,11 +274,23 @@ const handleButtonClick = (e) => {
 	}
 };
 
+const deletePets = (e) => {
+	const targetType = e.target.type;
+	const targetId = e.target.id;
+
+	if (targetType === 'button') {
+		pets.splice(targetId, 1);
+	}
+
+	petBuilder(pets);
+};
+
 const buttonEvents = () => {
 	document.querySelector('#all').addEventListener('click', handleButtonClick);
 	document.querySelector('#cat').addEventListener('click', handleButtonClick);
 	document.querySelector('#dog').addEventListener('click', handleButtonClick);
 	document.querySelector('#dino').addEventListener('click', handleButtonClick);
+	document.querySelector('#pets').addEventListener('click', deletePets);
 };
 
 const init = () => {
