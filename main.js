@@ -232,3 +232,57 @@ const pets = [
 			'http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119'
 	}
 ];
+
+let filtered = false;
+
+const printToDom = (divId, textToPrint) => {
+	const selectedDiv = document.querySelector(divId);
+	selectedDiv.innerHTML = textToPrint;
+};
+
+const petBuilder = (array) => {
+	let domString = '';
+	for (let i = 0; i < array.length; i++) {
+		domString += `<div class="card text-center mb-3" style="width: 15rem;">
+                    <div class="card-header">${array[i].name}</div>
+                    <div class="card-image my-2"><img src=${array[i]
+						.imageUrl} alt="cat" class="card-image img-thumbnail w-75"></div>
+                    <div class="card-body p-0">
+                      <p class="fs-5 m-0">${array[i].color}</p>
+                      <p class="card-text fs-6">${array[i].specialSkill}</p>
+                    </div>
+                    <p class="card-text fs-5">${array[i].type}</p>
+                  </div>`;
+	}
+	printToDom('#pets', domString);
+};
+
+const handleButtonClick = (e) => {
+	const buttonId = e.target.id;
+	const selectedPets = [];
+
+	for (let i = 0; i < pets.length; i++) {
+		if (pets[i].type === buttonId) {
+			selectedPets.push(pets[i]);
+		}
+	}
+
+	petBuilder(selectedPets);
+	if (buttonId === 'all') {
+		petBuilder(pets);
+	}
+};
+
+const buttonEvents = () => {
+	document.querySelector('#all').addEventListener('click', handleButtonClick);
+	document.querySelector('#cat').addEventListener('click', handleButtonClick);
+	document.querySelector('#dog').addEventListener('click', handleButtonClick);
+	document.querySelector('#dino').addEventListener('click', handleButtonClick);
+};
+
+const init = () => {
+	petBuilder(pets);
+	buttonEvents();
+};
+
+init();
