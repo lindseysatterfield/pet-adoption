@@ -12,7 +12,8 @@ const pets = [
 		specialSkill :
 			'Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.',
 		type         : 'dino',
-		imageUrl     : 'http://www.jozilife.co.za/wp-content/uploads/The-Dino-Expo.jpg'
+		imageUrl     :
+			'https://images.unsplash.com/photo-1525877442103-5ddb2089b2bb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1000&q=80'
 	},
 	{
 		name         : 'Whiskers',
@@ -57,7 +58,8 @@ const pets = [
 		color        : 'Grey',
 		specialSkill : 'Comfortable in the outdoors for up to eight hours.',
 		type         : 'dino',
-		imageUrl     : 'http://www.theouthousers.com/images/jck//ThanosCopter/news/grumpasaur.jpg'
+		imageUrl     :
+			'https://images.newscientist.com/wp-content/uploads/2020/01/10120337/pala12470-fig-0004-m-c-fabbri-et-al.jpg'
 	},
 	{
 		name         : 'Sassy',
@@ -120,8 +122,7 @@ const pets = [
 		color        : 'Poop-Colored',
 		specialSkill : 'Drives at a safe rate of speed in snow or rain.',
 		type         : 'dino',
-		imageUrl     :
-			'https://images.readwrite.com/wp-content/uploads/2018/03/t-rex-dino-quiz-e1490854556549.jpg'
+		imageUrl     : 'https://i1.wp.com/dinotoyblog.com/wp-content/uploads/2015/10/image28.jpeg'
 	},
 	{
 		name         : 'Muffin',
@@ -137,7 +138,7 @@ const pets = [
 		specialSkill : 'Proficient in air guitar',
 		type         : 'dino',
 		imageUrl     :
-			'https://www.nation.co.ke/image/view/-/4078922/highRes/1742693/-/maxw/600/-/1453yvh/-/DINO.jpg'
+			'https://www.maxpixel.net/static/photo/1x/Jurassic-Zoo-Reptile-Brown-Dinosaur-Dinosaur-597148.jpg'
 	},
 	{
 		name         : 'Callie',
@@ -159,8 +160,7 @@ const pets = [
 		color        : 'Red',
 		specialSkill : 'Owns a Nintendo Power Glove.',
 		type         : 'dino',
-		imageUrl     :
-			'https://img.buzzfeed.com/buzzfeed-static/static/2015-11/2/12/enhanced/webdr15/anigif_enhanced-29802-1446485228-10.gif?crop=250:165;0,0&downsize=715'
+		imageUrl     : 'https://i.ytimg.com/vi/uyYBAXfSSJE/maxresdefault.jpg'
 	},
 	{
 		name         : 'Snuggles',
@@ -168,7 +168,7 @@ const pets = [
 		specialSkill : 'Is comfortable with jokes about his receding hairline.',
 		type         : 'cat',
 		imageUrl     :
-			'http://funnyanimalphoto.com/wp-content/uploads/2013/08/cat_caught_mouse_thegatewaypundit.jpg'
+			'https://www.thehappycatsite.com/wp-content/uploads/2017/08/Orange-Cat-Names-HC-long.jpg'
 	},
 	{
 		name         : 'Buddy',
@@ -191,7 +191,7 @@ const pets = [
 		specialSkill : 'Knows the words to 4 rap songs.',
 		type         : 'cat',
 		imageUrl     :
-			'http://funbk.s3.amazonaws.com/wp-content/uploads/2016/06/funny-cat-video-which-will-make-you-laugh-louder.jpg'
+			'https://checkmember.com/wp-content/uploads/2019/11/Orange-tabby-cat-wiith-alien-green-eyes-e1574969221248.jpg'
 	},
 	{
 		name         : 'Bubba',
@@ -228,8 +228,7 @@ const pets = [
 		color        : 'Red',
 		specialSkill : 'Doesn’t get weirded out by the word “moist.”',
 		type         : 'dino',
-		imageUrl     :
-			'http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119'
+		imageUrl     : 'https://www.roadsideamerica.com/attract/images/mn/MNELKdino_dressler.jpg'
 	}
 ];
 
@@ -245,16 +244,17 @@ const petBuilder = (array) => {
 	for (let i = 0; i < array.length; i++) {
 		domString += `<div class="card text-center mb-3" style="width: 15rem;">
                     <div class="card-header">${array[i].name}</div>
-                    <div class="card-image my-2"><img src=${array[i]
-						.imageUrl} alt="cat" class="card-image img-thumbnail w-75"></div>
+                    <div class="card-image my-2"><img src=${array[i].imageUrl} alt="${array[i]
+			.type}" class="card-image img-thumbnail w-75"></div>
                     <div class="card-body p-0">
                       <p class="fs-5 m-0">${array[i].color}</p>
                       <p class="card-text fs-6">${array[i].specialSkill}</p>
                     </div>
-                    <p class="card-text fs-5">${array[i].type}</p>
-                    <button type="button" class="btn btn-danger" id="${i}">Delete</button>
+                    <div class="card-footer mt-2 mb-2 ${array[i].type}">${array[i].type}</div>
+                    <button type="button" class="btn btn-danger p-1" id="${i}">Delete</button>
                   </div>`;
 	}
+
 	printToDom('#pets', domString);
 };
 
