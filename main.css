@@ -1,3 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
 body {
   background-color: rosybrown;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.btn-group > .btn-animal {
+  margin: 0 15em;
+  font-weight: bold;
+}
+
+.btn-animal {
+  border: none;
+}
+
+#all {
+  background-color: #af1d72;
+  border-radius: .25rem;
+}
+
+#cat {
+  background-color: #048BA8;;
+  border-radius: .25rem;
+}
+
+#dog {
+  background-color: #bbdbb4;
+  border-radius: .25rem;
+}
+
+#dino {
+  background-color: #bfc0c5;
+  border-radius: .25rem;
+}
+
+.card-footer.cat {
+  background-color: #048BA8;;
+}
+
+.card-footer.dog {
+  background-color: #bbdbb4;
+}
+
+.card-footer.dino {
+  background-color: #bfc0c5;
+}
+
+.btn-danger {
+  margin: .5em 4em;
 }
